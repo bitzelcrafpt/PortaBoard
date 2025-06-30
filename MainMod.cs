@@ -41,7 +41,6 @@ namespace PortaBoard
             {
                 if (enabled)
                 {
-                    canPress = false;
                     playerBoard.SetActive(false);
 
                     Player.Instance.LeftCollider.isTrigger = false;
@@ -52,12 +51,9 @@ namespace PortaBoard
                         FusionPlayer.Instance.LeftHandLocation.gameObject.SetActive(true);
                         FusionPlayer.Instance.RightHandLocation.gameObject.SetActive(true);
                     }
-
-                    enabled = !enabled;
                 }
                 else
                 {
-                    canPress = false;
                     playerBoard.SetActive(true);
 
                     Player.Instance.LeftCollider.isTrigger = true;
@@ -68,9 +64,10 @@ namespace PortaBoard
                         FusionPlayer.Instance.LeftHandLocation.gameObject.SetActive(false);
                         FusionPlayer.Instance.RightHandLocation.gameObject.SetActive(false);
                     }
-
-                    enabled = !enabled;
                 }
+                
+                canPress = false;
+                enabled = !enabled;
             }
             else if (!canPress && !leftPrimary && !rightPrimary)
             {
